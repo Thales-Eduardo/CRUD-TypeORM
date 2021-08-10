@@ -47,6 +47,10 @@ export class ProductsRepository implements IProductsRepository {
     return product;
   }
 
+  public async findById(id: string): Promise<Product | undefined> {
+    return await this.ProductRepository.findOne(id);
+  }
+
   public async update(data: Product): Promise<Product> {
     if (data.category) {
       await this.CategoryRepository.save(data.category);
@@ -61,12 +65,14 @@ export class ProductsRepository implements IProductsRepository {
     }
   }
 
-  public async findById(id: string): Promise<Product | undefined> {
-    return await this.ProductRepository.findOne(id);
+  public async findByCategoryId(id: string): Promise<Product | undefined> {
+    return await this.ProductRepository.findOne({
+      where: { category_id: id },
+    });
   }
 
-  public async findByCategory(id: string): Promise<Product[]> {
-    const idCategory = await this.CategoryRepository.findOne(id);
+  public async findAllProduct(category_id: string): Promise<Product[]> {
+    const idCategory = await this.CategoryRepository.findOne(category_id);
 
     const product = await this.ProductRepository.find({
       where: { category_id: idCategory },
