@@ -10,9 +10,9 @@
 
 - [] = Adicionar Foto do produto.
 
-- [] = Listar produtos a partir do id da categoria.
+- [x] = Listar todos os produtos a partir do id da categoria.
 
-- [] = Buscar produto pelo id.
+- [] = Listar todas as categorias a partir do id ou nome da categoria.
 
 - [] = Atualizar o nome da categoria e os produtos.
 
@@ -52,4 +52,4 @@
 
 - [] = Para deletar produto deve checar se o produto existe.
 
-- [] = Para listar os produtos o id da categoria deve ser igual ao category_id da tabela products.
+- [x] = Para listar os produtos o id da categoria deve ser igual ao category_id da tabela products.
