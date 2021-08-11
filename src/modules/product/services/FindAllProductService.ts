@@ -17,10 +17,10 @@ export class FindAllProductService {
   ) {}
 
   public async execute({ id }: IRequest): Promise<Product[]> {
-    const verid = await this.productsRepository.findByCategoryId(id);
+    const checkId = await this.productsRepository.findByCategoryId(id);
 
-    if (!verid) {
-      throw new AppErrors('Esse id esta incorreto.', 422);
+    if (!checkId) {
+      throw new AppErrors('Esse id esta, incorreto.', 422);
     }
 
     const product = await this.productsRepository.findAllProduct(id);

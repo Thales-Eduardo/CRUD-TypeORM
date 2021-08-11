@@ -12,7 +12,7 @@
 
 - [x] = Listar todos os produtos a partir do id da categoria.
 
-- [] = Listar todas as categorias a partir do id ou nome da categoria.
+- [x] = Listar todas as categorias.
 
 - [] = Atualizar o nome da categoria e os produtos.
 
