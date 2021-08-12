@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import { container } from 'tsyringe';
+import { classToClass } from 'class-transformer';
 
 import { UpdateAvatarProductService } from '@modules/product/services/UpdateAvatarProductService';
 
@@ -17,6 +18,6 @@ export class AvatarProductController {
       avatarFileName: (req as MulterRequest).file.filename,
     });
 
-    return res.json(avatar);
+    return res.json({ product: classToClass(avatar) });
   }
 }

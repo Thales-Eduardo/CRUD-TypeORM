@@ -7,6 +7,7 @@ import {
   ManyToOne,
   JoinColumn,
 } from 'typeorm';
+import { Expose } from 'class-transformer';
 
 import Category from './Category';
 
@@ -39,6 +40,11 @@ class Product {
 
   @UpdateDateColumn()
   updated_at: Date;
+
+  @Expose({ name: 'avatarUrl' })
+  getavatar_url(): string | null {
+    return this.avatar ? `http://localhost:3333/files/${this.avatar}` : null;
+  }
 }
 
 export default Product;

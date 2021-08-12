@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import { container } from 'tsyringe';
+import { classToClass } from 'class-transformer';
 
 import { FindAllCategoriesService } from '@modules/product/services/FindAllCategoriesService';
 
@@ -9,6 +10,6 @@ export class CategoryController {
 
     const allProduct = await findAllCategories.execute();
 
-    return res.json(allProduct);
+    return res.json({ product: classToClass(allProduct) });
   }
 }

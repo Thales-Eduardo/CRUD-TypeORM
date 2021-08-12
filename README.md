@@ -38,7 +38,7 @@
 
 - [] = Para validar os dados usar o `celebrate`.
 
-- [] = Usar `transformer` para controlar as respostas.
+- [] = Usar `class-transformer` para controlar as respostas.
 
 **Regra de Negócios.**
 

@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import { container } from 'tsyringe';
+import { classToClass } from 'class-transformer';
 
 import { CreateProductService } from '@modules/product/services/CreateProductService';
 import { FindAllProductService } from '@modules/product/services/FindAllProductService';
@@ -14,7 +15,7 @@ export class ProductController {
 
     const allProduct = await findAllProduct.execute({ id });
 
-    return res.json(allProduct);
+    return res.json({ product: classToClass(allProduct) });
   }
 
   public async create(req: Request, res: Response) {
@@ -29,7 +30,7 @@ export class ProductController {
       value,
     });
 
-    return res.json(product);
+    return res.json({ product: classToClass(product) });
   }
 
   public async update(req: Request, res: Response) {
@@ -46,7 +47,7 @@ export class ProductController {
       value,
     });
 
-    return res.json(update);
+    return res.json({ product: classToClass(update) });
   }
 
   public async delete(req: Request, res: Response) {
