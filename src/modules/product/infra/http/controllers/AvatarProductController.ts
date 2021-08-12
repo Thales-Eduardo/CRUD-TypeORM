@@ -18,6 +18,6 @@ export class AvatarProductController {
       avatarFileName: (req as MulterRequest).file.filename,
     });
 
-    return res.json({ product: classToClass(avatar) });
+    return res.json(classToClass(avatar));
   }
 }

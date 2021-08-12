@@ -15,7 +15,7 @@ export class ProductController {
 
     const allProduct = await findAllProduct.execute({ id });
 
-    return res.json({ product: classToClass(allProduct) });
+    return res.json(classToClass(allProduct));
   }
 
   public async create(req: Request, res: Response) {
@@ -30,7 +30,7 @@ export class ProductController {
       value,
     });
 
-    return res.json({ product: classToClass(product) });
+    return res.json(classToClass(product));
   }
 
   public async update(req: Request, res: Response) {
@@ -47,7 +47,7 @@ export class ProductController {
       value,
     });
 
-    return res.json({ product: classToClass(update) });
+    return res.json(classToClass(update));
   }
 
   public async delete(req: Request, res: Response) {

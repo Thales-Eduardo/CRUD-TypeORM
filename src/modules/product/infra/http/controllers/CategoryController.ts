@@ -10,6 +10,6 @@ export class CategoryController {
 
     const allProduct = await findAllCategories.execute();
 
-    return res.json({ product: classToClass(allProduct) });
+    return res.json(classToClass(allProduct));
   }
 }

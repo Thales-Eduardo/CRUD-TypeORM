@@ -10,7 +10,7 @@ request.
 
 ```json
 {
-  "name": "bike",
+  "name": "bola",
   "category": "Esportes",
   "price": 13.1,
   "value": 2
@@ -21,22 +21,20 @@ response.
 
 ```json
 {
-  "product": {
-    "name": "bike",
-    "category_id": "3d12ef05-b86f-41b2-b32b-2beabf1e3795",
-    "price": 13.1,
-    "value": 2,
-    "category": {
-      "id": "3d12ef05-b86f-41b2-b32b-2beabf1e3795",
-      "category": "Esportes",
-      "created_at": "2021-08-09T19:31:26.249Z",
-      "updated_at": "2021-08-11T18:22:44.032Z"
-    },
-    "id": "89ac8662-d070-4a1f-ac7a-f39c387c1280",
-    "created_at": "2021-08-12T20:59:29.181Z",
-    "updated_at": "2021-08-12T20:59:29.181Z",
-    "avatarUrl": null
-  }
+  "name": "bola",
+  "category_id": "3d12ef05-b86f-41b2-b32b-2beabf1e3795",
+  "price": 13.1,
+  "value": 2,
+  "category": {
+    "id": "3d12ef05-b86f-41b2-b32b-2beabf1e3795",
+    "category": "Esportes",
+    "created_at": "2021-08-09T19:31:26.249Z",
+    "updated_at": "2021-08-11T18:22:44.032Z"
+  },
+  "id": "bfa5baae-5318-4702-a0eb-d93ac78c37fd",
+  "created_at": "2021-08-12T21:45:13.923Z",
+  "updated_at": "2021-08-12T21:45:13.923Z",
+  "avatarUrl": null
 }
 ```
 
@@ -53,32 +51,30 @@ O id passa no parâmetro da (URL) e da categoria que deseja listar os produtos.
 response.
 
 ```json
-{
-  "product": [
-    {
-      "id": "89ac8662-d070-4a1f-ac7a-f39c387c1280",
-      "name": "Bike",
-      "category_id": "3d12ef05-b86f-41b2-b32b-2beabf1e3795",
-      "price": "13.10",
-      "value": "6",
-      "avatar": null,
-      "created_at": "2021-08-12T20:59:29.181Z",
-      "updated_at": "2021-08-12T21:03:19.570Z",
-      "avatarUrl": null
-    },
-    {
-      "id": "3e02c2e7-daf5-41fd-951c-4c96d1adc8f8",
-      "name": "bola de basquete",
-      "category_id": "3d12ef05-b86f-41b2-b32b-2beabf1e3795",
-      "price": "13.00",
-      "value": "2",
-      "avatar": "2f8552c4bc376bd00b85-21-215651_madara-uchiha-wallpaper-4k.jpg",
-      "created_at": "2021-08-09T19:37:50.898Z",
-      "updated_at": "2021-08-12T21:08:28.780Z",
-      "avatarUrl": "http://localhost:3333/files/2f8552c4bc376bd00b85-21-215651_madara-uchiha-wallpaper-4k.jpg"
-    }
-  ]
-}
+[
+  {
+    "id": "89ac8662-d070-4a1f-ac7a-f39c387c1280",
+    "name": "Bike",
+    "category_id": "3d12ef05-b86f-41b2-b32b-2beabf1e3795",
+    "price": "13.10",
+    "value": "6",
+    "avatar": null,
+    "created_at": "2021-08-12T20:59:29.181Z",
+    "updated_at": "2021-08-12T21:03:19.570Z",
+    "avatarUrl": null
+  },
+  {
+    "id": "bfa5baae-5318-4702-a0eb-d93ac78c37fd",
+    "name": "bola",
+    "category_id": "3d12ef05-b86f-41b2-b32b-2beabf1e3795",
+    "price": "13.10",
+    "value": "2",
+    "avatar": null,
+    "created_at": "2021-08-12T21:45:13.923Z",
+    "updated_at": "2021-08-12T21:45:13.923Z",
+    "avatarUrl": null
+  }
+]
 ```
 
 ---
@@ -132,23 +128,21 @@ response.
 ```json
 {
   "product": {
-    "product": {
-      "id": "89ac8662-d070-4a1f-ac7a-f39c387c1280",
-      "name": "Bola",
-      "category_id": "3d12ef05-b86f-41b2-b32b-2beabf1e3795",
-      "price": 13.1,
-      "value": 6,
-      "avatar": null,
-      "created_at": "2021-08-12T20:59:29.181Z",
-      "updated_at": "2021-08-12T21:03:19.570Z",
-      "avatarUrl": null
-    },
-    "categoryId": {
-      "id": "3d12ef05-b86f-41b2-b32b-2beabf1e3795",
-      "category": "Esportes",
-      "created_at": "2021-08-09T19:31:26.249Z",
-      "updated_at": "2021-08-11T18:22:44.032Z"
-    }
+    "id": "bfa5baae-5318-4702-a0eb-d93ac78c37fd",
+    "name": "Bola",
+    "category_id": "3d12ef05-b86f-41b2-b32b-2beabf1e3795",
+    "price": 13.1,
+    "value": 6,
+    "avatar": null,
+    "created_at": "2021-08-12T21:45:13.923Z",
+    "updated_at": "2021-08-12T21:46:27.333Z",
+    "avatarUrl": null
+  },
+  "categoryId": {
+    "id": "3d12ef05-b86f-41b2-b32b-2beabf1e3795",
+    "category": "Esportes",
+    "created_at": "2021-08-09T19:31:26.249Z",
+    "updated_at": "2021-08-11T18:22:44.032Z"
   }
 }
 ```
@@ -185,16 +179,14 @@ response.
 
 ```json
 {
-  "product": {
-    "id": "3e02c2e7-daf5-41fd-951c-4c96d1adc8f8",
-    "name": "bola de basquete",
-    "category_id": "3d12ef05-b86f-41b2-b32b-2beabf1e3795",
-    "price": "13.00",
-    "value": "2",
-    "avatar": "2f8552c4bc376bd00b85-21-215651_madara-uchiha-wallpaper-4k.jpg",
-    "created_at": "2021-08-09T19:37:50.898Z",
-    "updated_at": "2021-08-12T21:08:28.780Z",
-    "avatarUrl": "http://localhost:3333/files/2f8552c4bc376bd00b85-21-215651_madara-uchiha-wallpaper-4k.jpg"
-  }
+  "id": "3e02c2e7-daf5-41fd-951c-4c96d1adc8f8",
+  "name": "bola de basquete",
+  "category_id": "3d12ef05-b86f-41b2-b32b-2beabf1e3795",
+  "price": "13.00",
+  "value": "2",
+  "avatar": "f0a7ed9463fe039562ca-21-215651_madara-uchiha-wallpaper-4k.jpg",
+  "created_at": "2021-08-09T19:37:50.898Z",
+  "updated_at": "2021-08-12T21:44:36.070Z",
+  "avatarUrl": "http://localhost:3333/files/f0a7ed9463fe039562ca-21-215651_madara-uchiha-wallpaper-4k.jpg"
 }
 ```
