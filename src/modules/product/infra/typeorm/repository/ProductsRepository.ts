@@ -52,9 +52,6 @@ export class ProductsRepository implements IProductsRepository {
   }
 
   public async update(data: Product): Promise<Product> {
-    if (data.category) {
-      await this.CategoryRepository.save(data.category);
-    }
     return await this.ProductRepository.save(data);
   }
 

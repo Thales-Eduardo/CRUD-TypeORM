@@ -1,4 +1,4 @@
-# doc 0.0.1
+# Documentação 0.0.4
 
 # Criar produtos. ...sem o avatar
 
@@ -45,6 +45,8 @@ response.
 
 - **Url** = http://localhost:3333/list/:id
 
+O id passa no parâmetro da (URL) e da categoria que deseja listar os produtos.
+
 response.
 
 ```json
@@ -86,4 +88,45 @@ response.
     "updated_at": "2021-08-11T00:41:12.409Z"
   }
 ]
+```
+
+# Atualizar categoria e produto.
+
+- **Método** = `Put`
+
+- **url** = http://localhost:3333/update/:id
+
+O id que deve passar nos parâmetros da (URL) deve ser o id do produto que deseja atualizar.
+
+request.
+
+```json
+{
+  "name": "Bola",
+  "category": "Esportes",
+  "price": 13.1,
+  "value": 6
+}
+```
+
+response.
+
+```json
+{
+  "product": {
+    "id": "f3453d0a-8eb6-488e-8fa5-4f3fad870cdb",
+    "name": "Bola",
+    "category_id": "3d12ef05-b86f-41b2-b32b-2beabf1e3795",
+    "price": 13.1,
+    "value": 6,
+    "created_at": "2021-08-09T19:31:26.308Z",
+    "updated_at": "2021-08-11T18:24:14.883Z"
+  },
+  "categoryId": {
+    "id": "3d12ef05-b86f-41b2-b32b-2beabf1e3795",
+    "category": "Esportes",
+    "created_at": "2021-08-09T19:31:26.249Z",
+    "updated_at": "2021-08-11T18:22:44.032Z"
+  }
+}
 ```

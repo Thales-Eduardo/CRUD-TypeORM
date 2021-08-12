@@ -14,17 +14,15 @@
 
 - [x] = Listar todas as categorias.
 
-- [] = Atualizar o nome da categoria e os produtos.
+- [x] = Atualizar o nome da categoria e os produtos.
 
 - [] = validar dados na rotas.
-
-- [] = Para atualizar o produto sera necessário o id do produto.
 
 - [] = Para deletar o produto sera necessário o id do produto.
 
 - [] = Para listar os produtos da categoria, sera necessário id da categoria.
 
-**Requisito Não Funcionais.**
+**Requisito não Funcionais.**
 
 - [x] = Para Criar, deletar, etc. Usar o `TypeORM`.
 
@@ -48,8 +46,10 @@
 
 - [] = Para criar um avatar do produto deve checar se o produto existe.
 
-- [] = Para atualizar produto deve checar se o produto existe.
+- [x] = Para atualizar produto deve checar se o produto existe.
 
 - [] = Para deletar produto deve checar se o produto existe.
 
 - [x] = Para listar os produtos o id da categoria deve ser igual ao category_id da tabela products.
+
+- [x] = Para atualizar o produto sera necessário o id do produto.

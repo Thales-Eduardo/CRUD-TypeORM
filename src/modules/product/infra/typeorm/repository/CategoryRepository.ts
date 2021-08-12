@@ -13,4 +13,12 @@ export class CategoryRepository implements ICategoryRepositories {
   public async FindAllCategories(): Promise<Category[]> {
     return await this.CategoryRepository.find();
   }
+
+  public async findById(id: string): Promise<Category | undefined> {
+    return await this.CategoryRepository.findOne(id);
+  }
+
+  public async update(data: Category): Promise<Category> {
+    return await this.CategoryRepository.save(data);
+  }
 }
