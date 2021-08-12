@@ -4,6 +4,7 @@ import { container } from 'tsyringe';
 import { CreateProductService } from '@modules/product/services/CreateProductService';
 import { FindAllProductService } from '@modules/product/services/FindAllProductService';
 import { UpdateProductService } from '@modules/product/services/UpdateProductService';
+import { DeleteProductService } from '@modules/product/services/DeleteProductService';
 
 export class ProductController {
   public async index(req: Request, res: Response) {
@@ -48,5 +49,13 @@ export class ProductController {
     return res.json(update);
   }
 
-  public async delete(req: Request, res: Response) {}
+  public async delete(req: Request, res: Response) {
+    const { id } = req.params;
+
+    const deleteProduct = container.resolve(DeleteProductService);
+
+    await deleteProduct.execute({ id });
+
+    return res.status(204).send();
+  }
 }

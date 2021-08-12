@@ -1,4 +1,4 @@
-# Documentação 0.0.4
+# Documentação 0.0.5
 
 # Criar produtos. ...sem o avatar
 
@@ -130,3 +130,15 @@ response.
   }
 }
 ```
+
+# Deletar produto.
+
+- **Método** = `Delete`
+
+- **url** = http://localhost:3333/delete/:id
+
+O id que deve passar nos parâmetros da (URL) deve ser o id do produto que deseja deletar.
+
+response.
+
+status code `204`.

@@ -18,9 +18,11 @@
 
 - [] = validar dados na rotas.
 
-- [] = Para deletar o produto sera necessário o id do produto.
+- [x] = Para deletar o produto sera necessário o id do produto.
 
-- [] = Para listar os produtos da categoria, sera necessário id da categoria.
+- [x] = Para atualizar o produto sera necessário o id do produto.
+
+- [x] = Para listar os produtos da categoria, sera necessário id da categoria.
 
 **Requisito não Funcionais.**
 
@@ -48,8 +50,6 @@
 
 - [x] = Para atualizar produto deve checar se o produto existe.
 
-- [] = Para deletar produto deve checar se o produto existe.
+- [x] = Para deletar produto deve checar se o produto existe.
 
 - [x] = Para listar os produtos o id da categoria deve ser igual ao category_id da tabela products.
-
-- [x] = Para atualizar o produto sera necessário o id do produto.
