@@ -6,9 +6,9 @@
 
 - [x] = Criar um produto com sua categoria.
 
-- [] = Criar uma migration para adicionar uma coluna, avatar.
+- [x] = Criar uma migration para adicionar uma coluna, avatar.
 
-- [] = Adicionar Foto do produto.
+- [x] = Adicionar Foto do produto.
 
 - [x] = Listar todos os produtos a partir do id da categoria.
 
@@ -30,7 +30,7 @@
 
 - [x] = Banco de dados `PostgreSQL`.
 
-- [] = Para salvar a foto no disco, usar o `multer`.
+- [x] = Para salvar a foto no disco, usar o `multer`.
 
 - [] = Para testes usar o `jest`.
 
@@ -46,7 +46,7 @@
 
 - [x] = Ao criar produto deve criar junto a categoria do produto.
 
-- [] = Para criar um avatar do produto deve checar se o produto existe.
+- [x] = Para criar um avatar do produto deve checar se o produto existe.
 
 - [x] = Para atualizar produto deve checar se o produto existe.
 

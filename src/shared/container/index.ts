@@ -6,6 +6,8 @@ import { ProductsRepository } from '@modules/product/infra/typeorm/repository/Pr
 import { ICategoryRepositories } from '@modules/product/repositories/ICategoryRepositories';
 import { CategoryRepository } from '@modules/product/infra/typeorm/repository/CategoryRepository';
 
+import './providers';
+
 container.registerSingleton<IProductsRepository>(
   'ProductsRepository',
   ProductsRepository,

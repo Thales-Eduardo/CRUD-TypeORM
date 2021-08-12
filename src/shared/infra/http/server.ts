@@ -5,6 +5,7 @@ import cors from 'cors';
 import 'express-async-errors';
 
 import '@shared/infra/typeorm';
+import uploadCofig from '@config/upload';
 
 import router from './routes';
 import { AppErrors } from '@shared/errors/AppErrors';
@@ -16,6 +17,7 @@ const port = 3333;
 
 app.use(express.json());
 app.use(cors());
+app.use('/files', express.static(uploadCofig.directory));
 app.use(router);
 
 app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
@@ -36,4 +38,5 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
 
 app.listen(port, () => {
   console.log(`http://localhost:${port} 🔥🔥🚒`);
+  console.log(`http://localhost:${port}/files/`);
 });

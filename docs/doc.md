@@ -1,6 +1,6 @@
-# Documentação 0.0.5
+# Documentação 1.0.0
 
-# Criar produtos. ...sem o avatar
+# Criar produtos.
 
 - **Método** = `Post`
 
@@ -52,13 +52,14 @@ response.
 ```json
 [
   {
-    "id": "f3453d0a-8eb6-488e-8fa5-4f3fad870cdb",
-    "name": "bola",
+    "id": "7f2b00d6-01ed-4d36-b43c-ed6862c48e2a",
+    "name": "Bola",
     "category_id": "3d12ef05-b86f-41b2-b32b-2beabf1e3795",
-    "price": "12.00",
-    "value": "2",
-    "created_at": "2021-08-09T19:31:26.308Z",
-    "updated_at": "2021-08-09T19:31:26.308Z"
+    "price": "13.10",
+    "value": "6",
+    "avatar": null,
+    "created_at": "2021-08-12T18:34:56.440Z",
+    "updated_at": "2021-08-12T18:35:08.238Z"
   }
 ]
 ```
@@ -114,13 +115,14 @@ response.
 ```json
 {
   "product": {
-    "id": "f3453d0a-8eb6-488e-8fa5-4f3fad870cdb",
+    "id": "7f2b00d6-01ed-4d36-b43c-ed6862c48e2a",
     "name": "Bola",
     "category_id": "3d12ef05-b86f-41b2-b32b-2beabf1e3795",
     "price": 13.1,
     "value": 6,
-    "created_at": "2021-08-09T19:31:26.308Z",
-    "updated_at": "2021-08-11T18:24:14.883Z"
+    "avatar": null,
+    "created_at": "2021-08-12T18:34:56.440Z",
+    "updated_at": "2021-08-12T18:35:08.238Z"
   },
   "categoryId": {
     "id": "3d12ef05-b86f-41b2-b32b-2beabf1e3795",
@@ -142,3 +144,32 @@ O id que deve passar nos parâmetros da (URL) deve ser o id do produto que desej
 response.
 
 status code `204`.
+
+# Adicionar avtar ao produto.
+
+- **Método** = `Patch`
+
+- **url** = http://localhost:3333/avatar/:id
+
+O id que deve passar nos parâmetros da (URL) deve ser o id do produto.
+
+request.
+
+`MultPart`
+
+"avatar" `file`
+
+response.
+
+```json
+{
+  "id": "7f2b00d6-01ed-4d36-b43c-ed6862c48e2a",
+  "name": "Bola",
+  "category_id": "3d12ef05-b86f-41b2-b32b-2beabf1e3795",
+  "price": "13.10",
+  "value": "6",
+  "avatar": "b1d48a43fd9f8a38a5e4-8f5f62d5b40af8b6e30ffb33982ac881.jpg",
+  "created_at": "2021-08-12T18:34:56.440Z",
+  "updated_at": "2021-08-12T18:35:25.072Z"
+}
+```

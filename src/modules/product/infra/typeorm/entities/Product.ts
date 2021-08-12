@@ -31,6 +31,9 @@ class Product {
   @Column('decimal')
   value: number;
 
+  @Column()
+  avatar: string;
+
   @CreateDateColumn()
   created_at: Date;
 
