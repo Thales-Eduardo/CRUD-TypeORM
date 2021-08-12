@@ -153,6 +153,8 @@ status code `204`.
 
 O id que deve passar nos parâmetros da (URL) deve ser o id do produto.
 
+Para ver o arquivo estático http://localhost:3333/files/
+
 request.
 
 `MultPart`

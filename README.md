@@ -16,7 +16,7 @@
 
 - [x] = Atualizar o nome da categoria e os produtos.
 
-- [] = validar dados na rotas.
+- [x] = validar dados na rotas.
 
 - [x] = Para deletar o produto sera necessário o id do produto.
 
@@ -36,9 +36,9 @@
 
 - [x] = Injeção de dependência com `tsyringe`.
 
-- [] = Para validar os dados usar o `celebrate`.
+- [x] = Para validar os dados usar o `celebrate`.
 
-- [] = Usar `class-transformer` para controlar as respostas.
+- [x] = Usar `class-transformer` para controlar as respostas.
 
 **Regra de Negócios.**
 
