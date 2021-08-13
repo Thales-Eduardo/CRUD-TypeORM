@@ -104,6 +104,8 @@ response.
 ]
 ```
 
+---
+
 # Atualizar categoria e produto.
 
 - **Método** = `Put`
@@ -147,6 +149,8 @@ response.
 }
 ```
 
+---
+
 # Deletar produto.
 
 - **Método** = `Delete`
@@ -158,6 +162,8 @@ O id que deve passar nos parâmetros da (URL) deve ser o id do produto que desej
 response.
 
 status code `204`.
+
+---
 
 # Adicionar avatar ao produto.
 

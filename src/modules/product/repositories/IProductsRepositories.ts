@@ -6,6 +6,6 @@ export interface IProductsRepository {
   update(data: Product): Promise<Product>;
   findById(id: string): Promise<Product | undefined>;
   delete(id: string): Promise<void>;
-  findByCategoryId(id: string): Promise<Product | undefined>;
+  findByCategoryId(id: Product): Promise<Product | undefined>;
   findAllProduct(category_id: string): Promise<Product[]>;
 }

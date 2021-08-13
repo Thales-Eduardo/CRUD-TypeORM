@@ -34,6 +34,8 @@
 
 - [] = Para testes usar o `jest`.
 
+- [] = Build do projeto com o `babel`.
+
 - [x] = Injeção de dependência com `tsyringe`.
 
 - [x] = Para validar os dados usar o `celebrate`.
