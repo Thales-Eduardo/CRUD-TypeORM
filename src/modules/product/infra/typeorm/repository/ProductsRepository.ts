@@ -1,12 +1,16 @@
 import { getRepository, Repository } from 'typeorm';
 
 import { IProductsRepository } from '@modules/product/repositories/IProductsRepositories';
+import { ICategoryRepositories } from '@modules/product/repositories/ICategoryRepositories';
+
 import { ICreateProductsDTOS } from '@modules/product/dtos/ICreateProductsDTO';
 
 import Product from '../entities/Product';
 import Category from '../entities/Category';
 
-export class ProductsRepository implements IProductsRepository {
+export class ProductsRepository
+  implements IProductsRepository, ICategoryRepositories
+{
   private ProductRepository: Repository<Product>;
   private CategoryRepository: Repository<Category>;
 
@@ -62,7 +66,19 @@ export class ProductsRepository implements IProductsRepository {
     }
   }
 
-  public async findByCategoryId({ id }: Product): Promise<Product | undefined> {
+  public async FindAllCategories(): Promise<Category[]> {
+    return await this.CategoryRepository.find();
+  }
+
+  public async findByIdCategory(id: string): Promise<Category | undefined> {
+    return await this.CategoryRepository.findOne(id);
+  }
+
+  public async updateCategory(data: Category): Promise<Category> {
+    return await this.CategoryRepository.save(data);
+  }
+
+  public async findByCategoryId(id: string): Promise<Product | undefined> {
     return await this.ProductRepository.findOne({
       where: { category_id: id },
     });

@@ -4,16 +4,10 @@ import { IProductsRepository } from '@modules/product/repositories/IProductsRepo
 import { ProductsRepository } from '@modules/product/infra/typeorm/repository/ProductsRepository';
 
 import { ICategoryRepositories } from '@modules/product/repositories/ICategoryRepositories';
-import { CategoryRepository } from '@modules/product/infra/typeorm/repository/CategoryRepository';
 
 import './providers';
 
-container.registerSingleton<IProductsRepository>(
+container.registerSingleton<IProductsRepository & ICategoryRepositories>(
   'ProductsRepository',
   ProductsRepository,
-);
-
-container.registerSingleton<ICategoryRepositories>(
-  'CategoryRepository',
-  CategoryRepository,
 );

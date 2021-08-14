@@ -2,6 +2,8 @@
 
 [Documentação](./docs/doc.md)
 
+- [] = Refactor Repository, Container, services, Docs, FakeRepositorio.
+
 **Requisito Funcionais.**
 
 - [x] = Criar um produto com sua categoria.

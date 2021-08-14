@@ -4,6 +4,8 @@ import { AppErrors } from '@shared/errors/AppErrors';
 import Product from '../infra/typeorm/entities/Product';
 
 import { IProductsRepository } from '../repositories/IProductsRepositories';
+import { ICategoryRepositories } from '../repositories/ICategoryRepositories';
+
 import { IMulterStorageProvider } from '@shared/container/providers/MulterStorageProvider/methods/IMulterStorageProvider';
 
 interface IRequest {
@@ -15,7 +17,7 @@ interface IRequest {
 export class UpdateAvatarProductService {
   constructor(
     @inject('ProductsRepository')
-    private productsRepository: IProductsRepository,
+    private productsRepository: IProductsRepository & ICategoryRepositories,
 
     @inject('MulterStorageProvider')
     private multerStorageProvider: IMulterStorageProvider,

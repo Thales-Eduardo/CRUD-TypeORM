@@ -4,7 +4,6 @@ import { FakeProductRepositories } from '../repositories/fakes/FakeProductReposi
 import { FakeMulterStorageProvider } from '@shared/container/providers/MulterStorageProvider/fakes/FakeMulterStorageProvider';
 
 import { CreateProductService } from './CreateProductService';
-import { DeleteProductService } from './DeleteProductService';
 import { UpdateAvatarProductService } from './UpdateAvatarProductService';
 
 import { AppErrors } from '@shared/errors/AppErrors';
@@ -13,18 +12,13 @@ let fakeProductRepositories: FakeProductRepositories;
 let fakeMulterStorageProvider: FakeMulterStorageProvider;
 
 let createProductService: CreateProductService;
-let deleteProductService: DeleteProductService;
 let updateAvatarProductService: UpdateAvatarProductService;
 
-describe('DeleteProduct', () => {
+describe('UpdateAvatarProduct', () => {
   beforeEach(() => {
     fakeProductRepositories = new FakeProductRepositories();
     fakeMulterStorageProvider = new FakeMulterStorageProvider();
 
-    deleteProductService = new DeleteProductService(
-      fakeProductRepositories,
-      fakeMulterStorageProvider,
-    );
     createProductService = new CreateProductService(fakeProductRepositories);
     updateAvatarProductService = new UpdateAvatarProductService(
       fakeProductRepositories,
@@ -32,7 +26,32 @@ describe('DeleteProduct', () => {
     );
   });
 
-  it('should be able to delete a product.', async () => {
+  it('should be able to create a avatar to product.', async () => {
+    const product = await createProductService.execute({
+      name: 'Bola',
+      category: 'Esportes',
+      price: 13.3,
+      value: 8,
+    });
+
+    await updateAvatarProductService.execute({
+      id: product.id,
+      avatarFileName: 'avatar.png',
+    });
+
+    expect(product.avatar).toBe('avatar.png');
+  });
+
+  it('not should be able to create a avatar to product.', async () => {
+    await expect(
+      updateAvatarProductService.execute({
+        id: 'non-existing-product',
+        avatarFileName: 'da',
+      }),
+    ).rejects.toBeInstanceOf(AppErrors);
+  });
+
+  it('should delete old avatar when updating new one', async () => {
     const deleteFile = jest.spyOn(fakeMulterStorageProvider, 'deleteFile');
 
     const product = await fakeProductRepositories.create({
@@ -47,15 +66,12 @@ describe('DeleteProduct', () => {
       avatarFileName: 'avatar.png',
     });
 
-    const response = await deleteProductService.execute({ id: product.id });
+    await updateAvatarProductService.execute({
+      id: product.id,
+      avatarFileName: 'avatar2.png',
+    });
 
     expect(deleteFile).toHaveBeenCalledWith('avatar.png');
-    expect(response).toBe(undefined);
-  });
-
-  it('not should be able to delete a product.', async () => {
-    await expect(
-      deleteProductService.execute({ id: 'non-existing-product' }),
-    ).rejects.toBeInstanceOf(AppErrors);
+    expect(product.avatar).toBe('avatar2.png');
   });
 });

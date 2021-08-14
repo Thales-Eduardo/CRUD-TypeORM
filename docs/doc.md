@@ -10,7 +10,7 @@ request.
 
 ```json
 {
-  "name": "bola",
+  "name": "Bike",
   "category": "Esportes",
   "price": 13.1,
   "value": 2
@@ -21,19 +21,19 @@ response.
 
 ```json
 {
-  "name": "bola",
-  "category_id": "3d12ef05-b86f-41b2-b32b-2beabf1e3795",
+  "name": "Bike",
+  "category_id": "ed9ff589-3afa-4278-92ae-fc6f14612636",
   "price": 13.1,
   "value": 2,
   "category": {
-    "id": "3d12ef05-b86f-41b2-b32b-2beabf1e3795",
+    "id": "ed9ff589-3afa-4278-92ae-fc6f14612636",
     "category": "Esportes",
-    "created_at": "2021-08-09T19:31:26.249Z",
-    "updated_at": "2021-08-11T18:22:44.032Z"
+    "created_at": "2021-08-14T19:47:55.781Z",
+    "updated_at": "2021-08-14T19:47:55.781Z"
   },
-  "id": "bfa5baae-5318-4702-a0eb-d93ac78c37fd",
-  "created_at": "2021-08-12T21:45:13.923Z",
-  "updated_at": "2021-08-12T21:45:13.923Z",
+  "id": "9446fa8c-786b-4235-8792-dae5094eef34",
+  "created_at": "2021-08-14T19:50:54.386Z",
+  "updated_at": "2021-08-14T19:50:54.386Z",
   "avatarUrl": null
 }
 ```
@@ -53,25 +53,25 @@ response.
 ```json
 [
   {
-    "id": "89ac8662-d070-4a1f-ac7a-f39c387c1280",
-    "name": "Bike",
-    "category_id": "3d12ef05-b86f-41b2-b32b-2beabf1e3795",
-    "price": "13.10",
-    "value": "6",
-    "avatar": null,
-    "created_at": "2021-08-12T20:59:29.181Z",
-    "updated_at": "2021-08-12T21:03:19.570Z",
-    "avatarUrl": null
-  },
-  {
-    "id": "bfa5baae-5318-4702-a0eb-d93ac78c37fd",
+    "id": "7ba21b44-f1eb-48c7-9848-26c92bb60651",
     "name": "bola",
-    "category_id": "3d12ef05-b86f-41b2-b32b-2beabf1e3795",
+    "category_id": "ed9ff589-3afa-4278-92ae-fc6f14612636",
     "price": "13.10",
     "value": "2",
     "avatar": null,
-    "created_at": "2021-08-12T21:45:13.923Z",
-    "updated_at": "2021-08-12T21:45:13.923Z",
+    "created_at": "2021-08-14T19:50:39.953Z",
+    "updated_at": "2021-08-14T19:50:39.953Z",
+    "avatarUrl": null
+  },
+  {
+    "id": "9446fa8c-786b-4235-8792-dae5094eef34",
+    "name": "Bike",
+    "category_id": "ed9ff589-3afa-4278-92ae-fc6f14612636",
+    "price": "13.10",
+    "value": "2",
+    "avatar": null,
+    "created_at": "2021-08-14T19:50:54.386Z",
+    "updated_at": "2021-08-14T19:50:54.386Z",
     "avatarUrl": null
   }
 ]
@@ -112,7 +112,7 @@ response.
 
 - **url** = http://localhost:3333/update/:id
 
-O id que deve passar nos parâmetros da (URL) deve ser o id do produto que deseja atualizar.
+O id que deve passar nos parâmetros da (URL) deve ser o id do produto.
 
 request.
 
@@ -129,23 +129,15 @@ response.
 
 ```json
 {
-  "product": {
-    "id": "bfa5baae-5318-4702-a0eb-d93ac78c37fd",
-    "name": "Bola",
-    "category_id": "3d12ef05-b86f-41b2-b32b-2beabf1e3795",
-    "price": 13.1,
-    "value": 6,
-    "avatar": null,
-    "created_at": "2021-08-12T21:45:13.923Z",
-    "updated_at": "2021-08-12T21:46:27.333Z",
-    "avatarUrl": null
-  },
-  "categoryId": {
-    "id": "3d12ef05-b86f-41b2-b32b-2beabf1e3795",
-    "category": "Esportes",
-    "created_at": "2021-08-09T19:31:26.249Z",
-    "updated_at": "2021-08-11T18:22:44.032Z"
-  }
+  "id": "2938b6d1-e03d-4d30-9ff7-3db04e034ff7",
+  "name": "Bola",
+  "category_id": "ed9ff589-3afa-4278-92ae-fc6f14612636",
+  "price": 13.1,
+  "value": 6,
+  "avatar": null,
+  "created_at": "2021-08-14T19:47:55.839Z",
+  "updated_at": "2021-08-14T19:49:17.734Z",
+  "avatarUrl": null
 }
 ```
 
@@ -157,7 +149,7 @@ response.
 
 - **url** = http://localhost:3333/delete/:id
 
-O id que deve passar nos parâmetros da (URL) deve ser o id do produto que deseja deletar.
+O id que deve passar nos parâmetros da (URL) deve ser o id do produto.
 
 response.
 
@@ -173,7 +165,7 @@ status code `204`.
 
 O id que deve passar nos parâmetros da (URL) deve ser o id do produto.
 
-Para ver o arquivo estático http://localhost:3333/files/
+Para ver o arquivo estático http://localhost:3333/files/nomeDaFoto.png
 
 request.
 
@@ -185,14 +177,14 @@ response.
 
 ```json
 {
-  "id": "3e02c2e7-daf5-41fd-951c-4c96d1adc8f8",
-  "name": "bola de basquete",
-  "category_id": "3d12ef05-b86f-41b2-b32b-2beabf1e3795",
-  "price": "13.00",
-  "value": "2",
-  "avatar": "f0a7ed9463fe039562ca-21-215651_madara-uchiha-wallpaper-4k.jpg",
-  "created_at": "2021-08-09T19:37:50.898Z",
-  "updated_at": "2021-08-12T21:44:36.070Z",
-  "avatarUrl": "http://localhost:3333/files/f0a7ed9463fe039562ca-21-215651_madara-uchiha-wallpaper-4k.jpg"
+  "id": "2938b6d1-e03d-4d30-9ff7-3db04e034ff7",
+  "name": "Bola",
+  "category_id": "ed9ff589-3afa-4278-92ae-fc6f14612636",
+  "price": "13.10",
+  "value": "6",
+  "avatar": "97dfc23d2ce6c5fc10d7-21-215651_madara-uchiha-wallpaper-4k.jpg",
+  "created_at": "2021-08-14T19:47:55.839Z",
+  "updated_at": "2021-08-14T19:49:53.298Z",
+  "avatarUrl": "http://localhost:3333/files/97dfc23d2ce6c5fc10d7-21-215651_madara-uchiha-wallpaper-4k.jpg"
 }
 ```

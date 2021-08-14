@@ -3,7 +3,9 @@ import { injectable, inject } from 'tsyringe';
 import Product from '../infra/typeorm/entities/Product';
 
 import { AppErrors } from '@shared/errors/AppErrors';
+
 import { IProductsRepository } from '../repositories/IProductsRepositories';
+import { ICategoryRepositories } from '../repositories/ICategoryRepositories';
 
 interface IRequest {
   id: string;
@@ -13,7 +15,7 @@ interface IRequest {
 export class FindAllProductService {
   constructor(
     @inject('ProductsRepository')
-    private productsRepository: IProductsRepository,
+    private productsRepository: IProductsRepository & ICategoryRepositories,
   ) {}
 
   public async execute({ id }: IRequest): Promise<Product[]> {
