@@ -1,26 +1,46 @@
 import { v4 as uuid } from 'uuid';
 
 import { IProductsRepository } from '../IProductsRepositories';
+import { ICategoryRepositories } from '../ICategoryRepositories';
+
 import { ICreateProductsDTOS } from '../../dtos/ICreateProductsDTO';
 
 import Product from '../../infra/typeorm/entities/Product';
+import Category from '../../infra/typeorm/entities/Category';
 
-export class FakeProductRepositories implements IProductsRepository {
+export class FakeProductRepositories
+  implements IProductsRepository, ICategoryRepositories
+{
   private product: Product[] = [];
+  private category: Category[] = [];
 
-  public async findById(id: string): Promise<Product | undefined> {
-    const findProduct = this.product.find((product) => product.id === id);
-    return findProduct || undefined;
-  }
-
-  public async create(productData: ICreateProductsDTOS): Promise<Product> {
+  public async create({
+    category,
+    name,
+    price,
+    value,
+  }: ICreateProductsDTOS): Promise<Product> {
     const product = new Product();
+    const categoryMdl = new Category();
 
-    Object.assign(product, { id: uuid() }, productData);
+    categoryMdl.category = category;
+    categoryMdl.id = uuid();
+    this.category.push(categoryMdl);
+
+    product.id = uuid();
+    product.name = name;
+    product.price = price;
+    product.value = value;
+    product.category_id = categoryMdl.id;
 
     this.product.push(product);
 
     return product;
+  }
+
+  public async findById(id: string): Promise<Product | undefined> {
+    const findProduct = this.product.find((product) => product.id === id);
+    return findProduct;
   }
 
   public async update(product: Product): Promise<Product> {
@@ -39,8 +59,10 @@ export class FakeProductRepositories implements IProductsRepository {
     this.product.splice(produtoIndex, 1);
   }
 
-  public async findByCategoryId({ id }: Product): Promise<Product | undefined> {
-    const findProduct = this.product.find((product) => product.id === id);
+  public async findByCategoryId(id: string): Promise<Product | undefined> {
+    const findProduct = this.product.find(
+      (product) => product.category_id === id,
+    );
     return findProduct;
   }
 
@@ -48,9 +70,28 @@ export class FakeProductRepositories implements IProductsRepository {
     let product = this.product;
 
     if (category_id) {
-      product = this.product.filter((product) => product.id !== category_id);
+      product = this.product.filter(
+        (product) => product.category_id === category_id,
+      );
     }
 
     return product;
+  }
+
+  public async FindAllCategories(): Promise<Category[]> {
+    return this.category;
+  }
+
+  public async findByIdCategory(id: string): Promise<Category | undefined> {
+    return this.category.find((item) => item.id === id);
+  }
+
+  public async updateCategory(data: Category): Promise<Category> {
+    const findProduct = this.category.findIndex(
+      (findcategory) => findcategory.id === data.id,
+    );
+
+    this.category[findProduct] = data;
+    return data;
   }
 }
