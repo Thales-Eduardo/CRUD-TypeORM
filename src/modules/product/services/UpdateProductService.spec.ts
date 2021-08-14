@@ -8,7 +8,7 @@ import { AppErrors } from '@shared/errors/AppErrors';
 let fakeProductRepositories: FakeProductRepositories;
 let updateProductService: UpdateProductService;
 
-describe('CreateProduct', () => {
+describe('UpdateProduct', () => {
   beforeEach(() => {
     fakeProductRepositories = new FakeProductRepositories();
 

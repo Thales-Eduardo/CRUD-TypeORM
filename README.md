@@ -32,7 +32,7 @@
 
 - [x] = Para salvar a foto no disco, usar o `multer`.
 
-- [] = Para testes usar o `jest`.
+- [x] = Para testes usar o `jest`.
 
 - [] = Build do projeto com o `babel`.
 
