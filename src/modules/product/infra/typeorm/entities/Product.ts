@@ -43,7 +43,9 @@ class Product {
 
   @Expose({ name: 'avatarUrl' })
   getavatar_url(): string | null {
-    return this.avatar ? `http://localhost:3333/files/${this.avatar}` : null;
+    return this.avatar
+      ? `${process.env.APP_API_URL}/files/${this.avatar}`
+      : null;
   }
 }
 

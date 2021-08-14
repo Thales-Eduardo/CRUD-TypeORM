@@ -34,7 +34,7 @@
 
 - [x] = Para testes usar o `jest`.
 
-- [] = Build do projeto com o `babel`.
+- [x] = Build do projeto com o `babel`.
 
 - [x] = Injeção de dependência com `tsyringe`.
 
@@ -55,3 +55,9 @@
 - [x] = Para deletar produto deve checar se o produto existe.
 
 - [x] = Para listar os produtos o id da categoria deve ser igual ao category_id da tabela products.
+
+---
+
+# Coverage.
+
+![jest](./docs/img/jest.png)
