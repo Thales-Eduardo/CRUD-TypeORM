@@ -1,4 +1,18 @@
-# Produtos
+# Produtos.
+
+Para rodar o projeto tem que ter o [Docker](https://www.docker.com/) instalado na sua maquina.
+
+> Para subir os contêineres.
+
+```bash
+docker-compose up -d
+```
+
+> Para deletar os contêineres.
+
+```bash
+docker-compose down
+```
 
 [Documentação](./docs/doc.md)
 
