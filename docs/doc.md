@@ -46,7 +46,7 @@ response.
 
 - **Url** = http://localhost:3333/list/:id
 
-O id passa no parâmetro da (URL) e da categoria que deseja listar os produtos.
+> O id que deve passar no parâmetro da (URL) e da categoria que deseja listar os produtos.
 
 response.
 
@@ -112,7 +112,7 @@ response.
 
 - **url** = http://localhost:3333/update/:id
 
-O id que deve passar nos parâmetros da (URL) deve ser o id do produto.
+> O id que deve passar nos parâmetros da (URL) deve ser o id do produto.
 
 request.
 
@@ -149,7 +149,7 @@ response.
 
 - **url** = http://localhost:3333/delete/:id
 
-O id que deve passar nos parâmetros da (URL) deve ser o id do produto.
+> O id que deve passar nos parâmetros da (URL) deve ser o id do produto.
 
 response.
 
@@ -163,7 +163,7 @@ status code `204`.
 
 - **url** = http://localhost:3333/avatar/:id
 
-O id que deve passar nos parâmetros da (URL) deve ser o id do produto.
+> O id que deve passar nos parâmetros da (URL) deve ser o id do produto.
 
 Para ver o arquivo estático http://localhost:3333/files/nomeDaFoto.png
 
