@@ -10,6 +10,7 @@ import { errors } from 'celebrate';
 import '@shared/infra/typeorm';
 import uploadCofig from '@config/upload';
 
+import { rateLimiter } from './middlewares/rateLimiter';
 import router from './routes';
 import { AppErrors } from '@shared/errors/AppErrors';
 
@@ -18,6 +19,7 @@ import '@shared/container';
 const app = express();
 const port = 3333;
 
+app.use(rateLimiter);
 app.use(express.json());
 app.use(cors());
 app.use('/files', express.static(uploadCofig.directory));

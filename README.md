@@ -14,6 +14,10 @@ docker-compose up -d
 docker-compose down
 ```
 
+```bash
+yarn typeorm migration:run
+```
+
 [Documentação](./docs/doc.md)
 
 **Requisito Funcionais.**
@@ -38,6 +42,8 @@ docker-compose down
 
 - [x] = Para listar os produtos da categoria, sera necessário id da categoria.
 
+- [x] = Controlar os limites de requisições feitas pelo mesmo ip/usuário.
+
 **Requisito não Funcionais.**
 
 - [x] = Para Criar, deletar, etc. Usar o `TypeORM`.
@@ -55,6 +61,8 @@ docker-compose down
 - [x] = Para validar os dados usar o `celebrate`.
 
 - [x] = Usar `class-transformer` para controlar as respostas.
+
+- [x] = Para controle de requisições usar `rate-limiter-flexible` e `redis`.
 
 **Regra de Negócios.**
 
