@@ -7,7 +7,7 @@ import { AppErrors } from '@shared/errors/AppErrors';
 const redisCache = redis.createClient({
   host: 'redis_bd',
   port: 6379,
-  password: undefined,
+  password: process.env.PASSWORD_REDIS,
   enable_offline_queue: false,
 });
 

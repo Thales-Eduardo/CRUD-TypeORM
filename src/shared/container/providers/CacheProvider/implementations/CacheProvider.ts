@@ -10,7 +10,7 @@ export class CacheProvider implements ICacheProvider {
       port: 6379, // Redis port
       host: 'redis_bd', // Redis host
       family: 4, // 4 (IPv4) or 6 (IPv6)
-      password: undefined,
+      password: process.env.PASSWORD_REDIS,
       db: 0,
     });
   }
