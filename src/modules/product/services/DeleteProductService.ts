@@ -2,7 +2,9 @@ import { injectable, inject } from 'tsyringe';
 
 import { AppErrors } from '@shared/errors/AppErrors';
 import { IProductsRepository } from '../repositories/IProductsRepositories';
+
 import { IMulterStorageProvider } from '@shared/container/providers/MulterStorageProvider/methods/IMulterStorageProvider';
+import { ICacheProvider } from '@shared/container/providers/CacheProvider/methods/ICacheProvider';
 
 interface IRequest {
   id: string;
@@ -16,6 +18,9 @@ export class DeleteProductService {
 
     @inject('MulterStorageProvider')
     private multerStorageProvider: IMulterStorageProvider,
+
+    @inject('CacheProvider')
+    private cacheProvider: ICacheProvider,
   ) {}
 
   public async execute({ id }: IRequest): Promise<void> {
@@ -28,5 +33,6 @@ export class DeleteProductService {
     await this.multerStorageProvider.deleteFile(checkId.avatar);
 
     await this.productsRepository.delete(id);
+    await this.cacheProvider.invalidatePrefix('product');
   }
 }

@@ -2,17 +2,22 @@ import 'reflect-metadata';
 
 import { FindAllProductService } from './FindAllProductService';
 import { FakeProductRepositories } from '../repositories/fakes/FakeProductRepositories';
+import { FakeCacheProvider } from '@shared/container/providers/CacheProvider/fakes/FakeCacheProvider';
 
 import { AppErrors } from '@shared/errors/AppErrors';
 
 let fakeProductRepositories: FakeProductRepositories;
+let fakeCacheProvider: FakeCacheProvider;
 let findAllProductService: FindAllProductService;
 
 describe('FindAllProduct', () => {
   beforeEach(() => {
     fakeProductRepositories = new FakeProductRepositories();
-
-    findAllProductService = new FindAllProductService(fakeProductRepositories);
+    fakeCacheProvider = new FakeCacheProvider();
+    findAllProductService = new FindAllProductService(
+      fakeProductRepositories,
+      fakeCacheProvider,
+    );
   });
 
   it('must search all Product.', async () => {

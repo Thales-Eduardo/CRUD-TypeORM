@@ -4,6 +4,7 @@ import { AppErrors } from '@shared/errors/AppErrors';
 
 import { IProductsRepository } from '../repositories/IProductsRepositories';
 import { ICategoryRepositories } from '../repositories/ICategoryRepositories';
+import { ICacheProvider } from '@shared/container/providers/CacheProvider/methods/ICacheProvider';
 
 import Product from '../infra/typeorm/entities/Product';
 
@@ -20,6 +21,9 @@ export class UpdateProductService {
   constructor(
     @inject('ProductsRepository')
     private productsRepository: IProductsRepository & ICategoryRepositories,
+
+    @inject('CacheProvider')
+    private cacheProvider: ICacheProvider,
   ) {}
 
   public async execute({
@@ -49,6 +53,7 @@ export class UpdateProductService {
     product.value = value;
 
     const response = await this.productsRepository.update(product);
+    await this.cacheProvider.invalidatePrefix('product');
 
     return response;
   }

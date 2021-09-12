@@ -3,6 +3,7 @@ import { injectable, inject } from 'tsyringe';
 import Product from '../infra/typeorm/entities/Product';
 
 import { IProductsRepository } from '../repositories/IProductsRepositories';
+import { ICacheProvider } from '@shared/container/providers/CacheProvider/methods/ICacheProvider';
 
 interface IRequest {
   name: string;
@@ -16,6 +17,9 @@ export class CreateProductService {
   constructor(
     @inject('ProductsRepository')
     private productsRepository: IProductsRepository,
+
+    @inject('CacheProvider')
+    private cacheProvider: ICacheProvider,
   ) {}
 
   public async execute({
@@ -30,6 +34,8 @@ export class CreateProductService {
       price,
       value,
     });
+
+    await this.cacheProvider.invalidatePrefix('product');
 
     return product;
   }

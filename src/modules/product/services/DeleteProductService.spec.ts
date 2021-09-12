@@ -2,6 +2,7 @@ import 'reflect-metadata';
 
 import { FakeProductRepositories } from '../repositories/fakes/FakeProductRepositories';
 import { FakeMulterStorageProvider } from '@shared/container/providers/MulterStorageProvider/fakes/FakeMulterStorageProvider';
+import { FakeCacheProvider } from '@shared/container/providers/CacheProvider/fakes/FakeCacheProvider';
 
 import { CreateProductService } from './CreateProductService';
 import { DeleteProductService } from './DeleteProductService';
@@ -11,6 +12,7 @@ import { AppErrors } from '@shared/errors/AppErrors';
 
 let fakeProductRepositories: FakeProductRepositories;
 let fakeMulterStorageProvider: FakeMulterStorageProvider;
+let fakeCacheProvider: FakeCacheProvider;
 
 let createProductService: CreateProductService;
 let deleteProductService: DeleteProductService;
@@ -20,15 +22,21 @@ describe('DeleteProduct', () => {
   beforeEach(() => {
     fakeProductRepositories = new FakeProductRepositories();
     fakeMulterStorageProvider = new FakeMulterStorageProvider();
+    fakeCacheProvider = new FakeCacheProvider();
 
     deleteProductService = new DeleteProductService(
       fakeProductRepositories,
       fakeMulterStorageProvider,
+      fakeCacheProvider,
     );
-    createProductService = new CreateProductService(fakeProductRepositories);
+    createProductService = new CreateProductService(
+      fakeProductRepositories,
+      fakeCacheProvider,
+    );
     updateAvatarProductService = new UpdateAvatarProductService(
       fakeProductRepositories,
       fakeMulterStorageProvider,
+      fakeCacheProvider,
     );
   });
 

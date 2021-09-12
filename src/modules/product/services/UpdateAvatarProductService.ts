@@ -7,6 +7,7 @@ import { IProductsRepository } from '../repositories/IProductsRepositories';
 import { ICategoryRepositories } from '../repositories/ICategoryRepositories';
 
 import { IMulterStorageProvider } from '@shared/container/providers/MulterStorageProvider/methods/IMulterStorageProvider';
+import { ICacheProvider } from '@shared/container/providers/CacheProvider/methods/ICacheProvider';
 
 interface IRequest {
   id: string;
@@ -21,6 +22,9 @@ export class UpdateAvatarProductService {
 
     @inject('MulterStorageProvider')
     private multerStorageProvider: IMulterStorageProvider,
+
+    @inject('CacheProvider')
+    private cacheProvider: ICacheProvider,
   ) {}
 
   public async execute({ id, avatarFileName }: IRequest): Promise<Product> {
@@ -39,6 +43,7 @@ export class UpdateAvatarProductService {
     product.avatar = fileName;
 
     await this.productsRepository.update(product);
+    await this.cacheProvider.invalidatePrefix('product');
 
     return product;
   }

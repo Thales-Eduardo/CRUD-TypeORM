@@ -44,6 +44,8 @@ yarn typeorm migration:run
 
 - [x] = Controlar os limites de requisições feitas pelo mesmo ip/usuário.
 
+- [x] = Adicionar cache nas listagens dos produtos.
+
 **Requisito não Funcionais.**
 
 - [x] = Para Criar, deletar, etc. Usar o `TypeORM`.
@@ -63,6 +65,8 @@ yarn typeorm migration:run
 - [x] = Usar `class-transformer` para controlar as respostas.
 
 - [x] = Para controle de requisições usar `rate-limiter-flexible` e `redis`.
+
+- [x] = Para armazenar o cache usar o `redis` e para operações `ioredis`.
 
 **Regra de Negócios.**
 
