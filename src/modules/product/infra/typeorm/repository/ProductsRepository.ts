@@ -66,8 +66,14 @@ export class ProductsRepository
     }
   }
 
-  public async FindAllCategories(): Promise<Category[]> {
-    return await this.CategoryRepository.find();
+  public async FindAllCategories(
+    limit: number,
+    page: number,
+  ): Promise<Category[]> {
+    return await this.CategoryRepository.find({
+      skip: (page - 1) * limit,
+      take: limit,
+    });
   }
 
   public async findByIdCategory(id: string): Promise<Category | undefined> {

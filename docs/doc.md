@@ -83,7 +83,24 @@ response.
 
 - **Método** = `Get`
 
-- **Url** = http://localhost:3333/categories
+- **Url** = http://localhost:3333/categories?page=1&limit=2
+
+- Essa rota contem paginação, `page` => qual a página, `limit` => quantos itens por requisição, se as querys não for passada por padrão `page` = 1 e `limit` = 10 itens.
+
+request.
+
+```js
+axios
+  .get('/categories', {
+    params: {
+      page: 1,
+      limit: 2,
+    },
+  })
+  .then((res) => {
+    console.log(res);
+  });
+```
 
 response.
 

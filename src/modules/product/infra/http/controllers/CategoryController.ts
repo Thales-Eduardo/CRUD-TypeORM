@@ -6,9 +6,11 @@ import { FindAllCategoriesService } from '@modules/product/services/FindAllCateg
 
 export class CategoryController {
   public async index(req: Request, res: Response) {
+    const { page = 1, limit = 10 } = req.query;
+
     const findAllCategories = container.resolve(FindAllCategoriesService);
 
-    const allProduct = await findAllCategories.execute();
+    const allProduct = await findAllCategories.execute({ page, limit });
 
     return res.json(classToClass(allProduct));
   }

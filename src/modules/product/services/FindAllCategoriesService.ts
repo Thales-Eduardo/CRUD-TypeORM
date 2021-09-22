@@ -5,6 +5,11 @@ import Category from '../infra/typeorm/entities/Category';
 import { IProductsRepository } from '../repositories/IProductsRepositories';
 import { ICategoryRepositories } from '../repositories/ICategoryRepositories';
 
+interface Requeste {
+  page: any;
+  limit: any;
+}
+
 @injectable()
 export class FindAllCategoriesService {
   constructor(
@@ -12,8 +17,11 @@ export class FindAllCategoriesService {
     private productsRepository: IProductsRepository & ICategoryRepositories,
   ) {}
 
-  public async execute(): Promise<Category[]> {
-    const categories = await this.productsRepository.FindAllCategories();
+  public async execute({ limit, page }: Requeste): Promise<Category[]> {
+    const categories = await this.productsRepository.FindAllCategories(
+      limit,
+      page,
+    );
 
     return categories;
   }
