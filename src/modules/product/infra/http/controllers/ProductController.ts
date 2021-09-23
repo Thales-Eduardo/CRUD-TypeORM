@@ -10,10 +10,11 @@ import { DeleteProductService } from '@modules/product/services/DeleteProductSer
 export class ProductController {
   public async index(req: Request, res: Response) {
     const { id } = req.params;
+    const { page = 1, limit = 10 } = req.query;
 
     const findAllProduct = container.resolve(FindAllProductService);
 
-    const allProduct = await findAllProduct.execute({ id });
+    const allProduct = await findAllProduct.execute({ id, page, limit });
 
     return res.json(classToClass(allProduct));
   }

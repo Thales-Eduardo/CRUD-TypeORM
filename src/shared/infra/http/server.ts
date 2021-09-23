@@ -4,6 +4,7 @@ import 'dotenv/config';
 
 import express, { Request, Response, NextFunction } from 'express';
 import cors from 'cors';
+import helmet from 'helmet';
 import 'express-async-errors';
 import { errors } from 'celebrate';
 
@@ -22,6 +23,7 @@ const port = 3333;
 app.use(rateLimiter);
 app.use(express.json());
 app.use(cors());
+app.use(helmet());
 app.use('/files', express.static(uploadCofig.directory));
 app.use(router);
 app.use(errors());

@@ -7,5 +7,9 @@ export interface IProductsRepository {
   findById(id: string): Promise<Product | undefined>;
   delete(id: string): Promise<void>;
   findByCategoryId(id: string): Promise<Product | undefined>;
-  findAllProduct(category_id: string): Promise<Product[]>;
+  findAllProduct(
+    category_id: string,
+    limit: number,
+    page: number,
+  ): Promise<Product[]>;
 }

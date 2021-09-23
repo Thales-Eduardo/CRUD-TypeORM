@@ -90,11 +90,17 @@ export class ProductsRepository
     });
   }
 
-  public async findAllProduct(category_id: string): Promise<Product[]> {
+  public async findAllProduct(
+    category_id: string,
+    limit: number,
+    page: number,
+  ): Promise<Product[]> {
     const idCategory = await this.CategoryRepository.findOne(category_id);
 
     const product = await this.ProductRepository.find({
       where: { category_id: idCategory },
+      skip: (page - 1) * limit,
+      take: limit,
     });
 
     return product;

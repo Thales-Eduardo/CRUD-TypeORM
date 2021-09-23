@@ -11,6 +11,8 @@ import { ICacheProvider } from '@shared/container/providers/CacheProvider/method
 
 interface IRequest {
   id: string;
+  page: any;
+  limit: any;
 }
 
 @injectable()
@@ -23,18 +25,20 @@ export class FindAllProductService {
     private cacheProvider: ICacheProvider,
   ) {}
 
-  public async execute({ id }: IRequest): Promise<Product[]> {
+  public async execute({ id, limit, page }: IRequest): Promise<Product[]> {
     const checkId = await this.productsRepository.findByCategoryId(id);
 
     if (!checkId) {
       throw new AppErrors('Esse id esta, incorreto.', 422);
     }
 
-    let product = await this.cacheProvider.getCache<Product[]>(`product:${id}`);
+    const cacheKey = `product:${id}-${page}-${limit}`;
+
+    let product = await this.cacheProvider.getCache<Product[]>(cacheKey);
 
     if (!product) {
-      product = await this.productsRepository.findAllProduct(id);
-      await this.cacheProvider.save(`product:${id}`, classToClass(product));
+      product = await this.productsRepository.findAllProduct(id, limit, page);
+      await this.cacheProvider.save(cacheKey, classToClass(product));
     }
 
     return product;

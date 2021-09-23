@@ -46,7 +46,7 @@ yarn typeorm migration:run
 
 - [x] = Adicionar cache nas listagens dos produtos.
 
-- [x] = Adicionar paginação na listagem das categorias.
+- [x] = Adicionar paginação na listagem das categorias e produtos.
 
 **Requisito não Funcionais.**
 
@@ -84,7 +84,7 @@ yarn typeorm migration:run
 
 - [x] = Para listar os produtos o id da categoria deve ser igual ao category_id da tabela products.
 
-- [x] = As categorias listadas devem conter um limite passando pela query para paginação.
+- [x] = As categorias e produtos listadas devem conter um limite passando pela query para paginação.
 
 ---
 

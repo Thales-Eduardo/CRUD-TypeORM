@@ -44,9 +44,26 @@ response.
 
 - **Método** = `Get`
 
-- **Url** = http://localhost:3333/list/:id
+- **Url** = http://localhost:3333/list/:id?page=1&limit=2
+
+- Essa rota contem paginação, `page` => qual a página, `limit` => quantos itens por requisição, se as querys não for passada por padrão `page` = 1 e `limit` = 10 itens.
 
 > O id que deve passar no parâmetro da (URL) e da categoria que deseja listar os produtos.
+
+request.
+
+```js
+axios
+  .get(`/list/${id}`, {
+    params: {
+      page: 1,
+      limit: 2,
+    },
+  })
+  .then((res) => {
+    console.log(res);
+  });
+```
 
 response.
 
