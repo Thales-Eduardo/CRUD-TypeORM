@@ -61,6 +61,7 @@ export class ProductsRepository
 
   public async delete(id: string): Promise<void> {
     const product = await this.ProductRepository.findOne(id);
+
     if (product) {
       await this.ProductRepository.remove(product);
     }

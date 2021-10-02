@@ -30,9 +30,12 @@ export class DeleteProductService {
       throw new AppErrors('Esse id esta, incorreto.', 422);
     }
 
-    await this.multerStorageProvider.deleteFile(checkId.avatar);
+    if (checkId.avatar) {
+      await this.multerStorageProvider.deleteFile(checkId.avatar);
+    }
 
     await this.productsRepository.delete(id);
+
     await this.cacheProvider.invalidatePrefix('product');
   }
 }

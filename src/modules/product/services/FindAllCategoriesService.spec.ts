@@ -23,10 +23,10 @@ describe('FindAllCategories', () => {
       value: 8,
     });
 
-    const limit = 1;
-    const page = 1;
-
-    const response = await findAllCategoriesService.execute({ limit, page });
+    const response = await findAllCategoriesService.execute({
+      limit: 1,
+      page: 1,
+    });
 
     expect(response).toEqual([
       {

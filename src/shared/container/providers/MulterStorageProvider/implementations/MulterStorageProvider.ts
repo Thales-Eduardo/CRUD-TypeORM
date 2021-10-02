@@ -15,15 +15,17 @@ class MulterStorageProvider implements IMulterStorageProvider {
   }
 
   public async deleteFile(file: string): Promise<void> {
-    const filepath = path.resolve(uploadConfig.directory, file);
+    if (file) {
+      const filepath = path.resolve(uploadConfig.directory, file);
 
-    try {
-      await fs.stat(filepath);
-    } catch {
-      return;
+      try {
+        await fs.stat(filepath);
+      } catch {
+        return;
+      }
+
+      await fs.unlink(filepath);
     }
-
-    await fs.unlink(filepath);
   }
 }
 

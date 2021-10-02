@@ -27,13 +27,11 @@ describe('FindAllProduct', () => {
       price: 13.3,
       value: 8,
     });
-    const limit = 1;
-    const page = 1;
 
     const response = await findAllProductService.execute({
       id: product.category_id,
-      limit,
-      page,
+      limit: 1,
+      page: 1,
     });
 
     expect(response).toEqual([product]);

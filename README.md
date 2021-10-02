@@ -8,14 +8,14 @@ Para rodar o projeto tem que ter o [Docker](https://www.docker.com/) instalado n
 docker-compose up -d
 ```
 
+```bash
+yarn typeorm migration:run
+```
+
 > Para deletar os contêineres.
 
 ```bash
 docker-compose down
-```
-
-```bash
-yarn typeorm migration:run
 ```
 
 [Documentação](./docs/doc.md)

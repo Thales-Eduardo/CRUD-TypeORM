@@ -14,8 +14,8 @@ const redisCache = redis.createClient({
 const limiter = new RateLimiterRedis({
   storeClient: redisCache,
   keyPrefix: 'middleware',
-  points: 4, // 2 requests
-  duration: 10, // per 3 second by IP
+  points: 100, // 100 requests
+  duration: 10000, // per 10000 second by IP
 });
 
 export async function rateLimiter(

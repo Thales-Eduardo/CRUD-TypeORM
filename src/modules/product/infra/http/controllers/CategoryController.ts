@@ -12,6 +12,6 @@ export class CategoryController {
 
     const allProduct = await findAllCategories.execute({ page, limit });
 
-    return res.json(classToClass(allProduct));
+    return res.status(200).json(classToClass(allProduct));
   }
 }
