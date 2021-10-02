@@ -1,4 +1,7 @@
 const axios = require('axios').default;
+const FormData = require('form-data');
+const fs = require('fs');
+const path = require('path');
 
 const url = 'http://localhost:3333';
 
@@ -114,5 +117,28 @@ describe('Integration tests', () => {
     const response = await axios.delete(`${url}/delete/${product.data.id}`);
 
     expect(response.status).toBe(204);
+  });
+
+  it('Add avatar to product.', async () => {
+    const product = await axios.post(`${url}/create`, {
+      name: 'Bike',
+      category: 'Esportes',
+      price: 13.2,
+      value: 2,
+    });
+
+    const file = path.join(__dirname, '..', 'docs', 'img', 'jest.png');
+
+    let data = new FormData();
+    data.append('avatar', fs.createReadStream(file));
+    const avatar = await axios
+      .create({
+        headers: data.getHeaders(),
+      })
+      .patch(`${url}/avatar/${product.data.id}`, data);
+
+    expect(avatar.status).toBe(200);
+
+    await axios.delete(`${url}/delete/${product.data.id}`);
   });
 });
